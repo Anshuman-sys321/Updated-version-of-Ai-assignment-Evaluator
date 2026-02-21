@@ -14,21 +14,14 @@ body{
 .navbar{
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(12px);
-    padding:clamp(10px, 2vw, 15px) clamp(15px, 3vw, 25px);
+    padding:15px 25px;
     display:flex;
     justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:10px;
-    position:fixed;
-    top:0;
-    width:100%;
-    z-index:100;
 }
+
 
 .menu-btn{cursor:pointer;}
 
-/* Enhanced Glassmorphic Sidebar */
 .sidebar {
     width: 280px;
     background: rgba(0, 0, 0, 0.7);
@@ -50,7 +43,6 @@ body{
     transform: translateX(280px);
 }
 
-/* Sidebar Links with Interaction */
 .sidebar a {
     display: flex;
     align-items: center;
@@ -71,7 +63,6 @@ body{
     border-left: 4px solid #00c6ff;
 }
 
-/* Logout link special style */
 .sidebar a.logout-link {
     margin-top: 50px;
     color: #ff4d4d;
@@ -82,7 +73,7 @@ body{
     border-left-color: #ff4d4d;
 }
 
-/* Sidebar Overlay */
+
 #sidebarOverlay {
     position: fixed;
     top: 0;
@@ -124,10 +115,7 @@ body{
     transform:translateY(-5px);
 }
 
-.card h2{
-    font-size:clamp(1.2rem, 3vw, 1.5rem);
-    margin-bottom:15px;
-}
+
 
 input,select{
     width:100%;
@@ -229,8 +217,12 @@ canvas{
     background:white;
     color:#111;
 }
+@media(max-width:900px){
+    .container{
+        grid-template-columns:1fr;
+    }
+}
 
-/* Enhanced Button Animations */
 button {
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative;
@@ -290,7 +282,6 @@ input:focus, select:focus, textarea:focus {
     transform: scale(1.01);
 }
 
-/* Mobile Specific Styles */
 @media(max-width:480px){
     .navbar{
         padding: 10px 12px;
@@ -325,7 +316,6 @@ input:focus, select:focus, textarea:focus {
     }
 }
 
-/* Tablet Specific Styles */
 @media(min-width:481px) and (max-width:768px){
     .container{
         padding: 20px;
@@ -345,7 +335,6 @@ input:focus, select:focus, textarea:focus {
     }
 }
 
-/* Desktop Specific Styles */
 @media(min-width:769px){
     .navbar {
         padding: 15px 25px;
@@ -355,3 +344,34 @@ input:focus, select:focus, textarea:focus {
         max-width: 1000px;
     }
 }
+
+.main-content {
+            transition: margin-left 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            padding: 20px;
+        }
+        .sidebar.active ~ .main-content {
+            margin-left: 280px;
+        }
+        .dashboard-section {
+            display: none;
+            animation: slideUpFade 0.5s ease;
+        }
+        .dashboard-section.active {
+            display: block;
+        }
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            padding: 10px;
+        }
+        .nav-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        #studentRank {
+            font-size: 48px;
+            color: #00ff95;
+            text-shadow: 0 0 10px rgba(0, 255, 149, 0.3);
+        }
